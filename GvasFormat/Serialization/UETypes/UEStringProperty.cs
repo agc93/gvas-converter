@@ -20,7 +20,7 @@ namespace GvasFormat.Serialization.UETypes
                     throw new FormatException($"Offset: 0x{reader.BaseStream.Position - 1:x8}. Expected terminator (0x00), but was (0x{terminator:x2})");
             }
 
-            Value = reader.ReadUEString(valueLength);
+            Value = reader.ReadUEString();
         }
 
         public override void SerializeProp(BinaryWriter writer)

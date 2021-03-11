@@ -51,6 +51,7 @@ namespace GvasFormat.Serialization
             result.Name = name;
             result.Type = type;
             result.ValueLength = valueLength;
+            result.Address = $"0x{ itemOffset :x8}";
             return result;
         }
 

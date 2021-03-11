@@ -47,6 +47,7 @@ namespace GvasFormat.Serialization.UETypes
         protected static UEStructProperty ReadStructValue(string type, BinaryReader reader, long valueLength)
         {
             UEStructProperty result;
+            var itemOffset = reader.BaseStream.Position;
             switch (type)
             {
                 case "DateTime":
@@ -74,6 +75,7 @@ namespace GvasFormat.Serialization.UETypes
             }
             result.StructType = type;
             result.ValueLength = valueLength;
+            result.Address = $"0x{ itemOffset :x8}";
             return result;
         }
 
